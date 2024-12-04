@@ -1,10 +1,11 @@
 import axios from "axios";
+import { BASE_URL } from "../env";
 
 export const LogIn = async (user: string, password: string) => {
   console.log(user, password);
   try {
     const { data } = await axios.post(
-      `http://localhost:5103/api/Users/validate`,
+      `${BASE_URL}/api/Users/validate`,
       {"username": user, "password": password}
     );
     return data;

@@ -20,13 +20,12 @@ interface userInfo {
   setLoading: (value: boolean) => void;
   signUp: (user: string, password: string) => Promise<void>;
   logIn: (user: string, password: string) => Promise<void>;
+  logOut: () => void;
   addWishProduct: (productId: string, userId: number) => Promise<void>;
 }
 
 export const storeApi: StateCreator<userInfo> = (set) => ({
   user: { id: 0, name: "", password: "", products: [] },
-  id: 0,
-  userName: "",
   wishProducts: [],
   isLoading: false,
   confirmed: false,
@@ -62,6 +61,9 @@ export const storeApi: StateCreator<userInfo> = (set) => ({
       console.log(error);
       throw error;
     }
+  },
+  logOut: () => {
+    set({ user: { id: 0, name: "", password: "", products: [] } });
   },
   logIn: async (user: string, password: string) => {
     console.log(user, password);

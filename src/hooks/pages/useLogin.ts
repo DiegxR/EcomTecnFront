@@ -21,10 +21,11 @@ export const useLogin = () => {
         duration: 2000,
       });
     } catch (error: any) {
+      console.log(error)
       presentAlert({
         header: "Error al iniciar sesion",
         subHeader: "",
-        message: error.response.data.message
+        message: error?.response?.data?.message
           ? error.response.data.message
           : "Ocurrió un error en la conexión",
         buttons: ["Ok"],
