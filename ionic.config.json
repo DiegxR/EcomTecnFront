@@ -1,5 +1,8 @@
 {
   "name": "ionic-react-tailwind",
   "integrations": {},
-  "type": "react-vite"
+  "type": "react-vite",
+  "build": {
+    "outputDir": "build"
+  }
 }
